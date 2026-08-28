@@ -1,7 +1,8 @@
 {
-  "name": "absensi-app",
+  "name": "absensi-ocr",
   "version": "1.0.0",
+  "private": true,
   "scripts": {
-    "build": "node -e \"const fs = require('fs'); fs.writeFileSync('./config.js', `window.APP_CONFIG = { GOOGLE_CLIENT_ID: '${process.env.GOOGLE_CLIENT_ID}', SCOPES: 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.profile', GEMINI_API_KEY: '${process.env.GEMINI_API_KEY}', GEMINI_MODEL: '${process.env.GEMINI_MODEL || 'gemini-1.5-flash'}' };`);\""
+    "build": "node -e \"const fs = require('fs'); const gId = process.env.GOOGLE_CLIENT_ID || ''; const gKey = process.env.GEMINI_API_KEY || ''; const gModel = process.env.GEMINI_MODEL || 'gemini-1.5-flash'; const scopes = 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.profile'; fs.writeFileSync('./config.js', `window.APP_CONFIG = { GOOGLE_CLIENT_ID: '${gId}', SCOPES: '${scopes}', GEMINI_API_KEY: '${gKey}', GEMINI_MODEL: '${gModel}' };`);\""
   }
 }
