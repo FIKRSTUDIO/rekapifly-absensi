@@ -1,0 +1,7 @@
+{
+  "name": "absensi-app",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node -e \"const fs = require('fs'); fs.writeFileSync('./config.js', `window.APP_CONFIG = { GOOGLE_CLIENT_ID: '${process.env.GOOGLE_CLIENT_ID}', SCOPES: 'https://www.googleapis.com/auth/spreadsheets https://www.googleapis.com/auth/userinfo.profile', GEMINI_API_KEY: '${process.env.GEMINI_API_KEY}', GEMINI_MODEL: '${process.env.GEMINI_MODEL || 'gemini-1.5-flash'}' };`);\""
+  }
+}
